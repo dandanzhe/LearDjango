@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^time/(\d{1,2})/$',blog.views.hours_ahead),
     url(r'^sum/(\d{1,10})/$',blog.views.sum_n),
     url(r'^love/(\w+)/$',blog.views.love),
-    url(r'^hhhh/$',blog.views.hhhh)
+    url(r'^hhhh/$',blog.views.hhhh),
+    url(r'^search-form/$',blog.views.httprendertoresponse),
 ]

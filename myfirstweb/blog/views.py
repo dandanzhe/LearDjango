@@ -3,6 +3,7 @@ from django.http import HttpResponse,Http404
 import datetime
 from django.template.loader import get_template
 from django.template import Context
+from django.shortcuts import render_to_response
 
 # Create your views here.
 
@@ -48,3 +49,7 @@ def hhhh(request):
     t = get_template('hello.html')
     html = t.render(Context({'name': "fuxiaodan"}))
     return HttpResponse(html)
+
+
+def httprendertoresponse(request):
+    return render_to_response('search_form.html')
