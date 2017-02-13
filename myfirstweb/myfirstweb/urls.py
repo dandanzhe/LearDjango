@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^sum/(\d{1,10})/$',blog.views.sum_n),
     url(r'^love/(\w+)/$',blog.views.love),
     url(r'^hhhh/$',blog.views.hhhh),
-    url(r'^search-form/$',blog.views.httprendertoresponse),
+    #url(r'^search_form/$',blog.views.httprendertoresponse),
+    url(r'^META/$',blog.views.request_META),
+    url(r'^search/$',blog.views.search),
 ]

@@ -3,9 +3,16 @@
     <title>Search</title>
 </head>
 <body>
-    <form action="/search/" method="get">
+    {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+    {% endif %}
+    <form action="" method="get"> 
+<!-- 在HTML里我们定义了一个变量q。当提交表单时，变量q的值通过GET(method=”get”)附加在URL /search/上。
+
+处理/search/（search()）的视图通过request.GET来获取q的值。-->
         <input type="text" name="q">
         <input type="submit" value="Search">
     </form>
 </body>
 </html>
+

@@ -4,6 +4,7 @@ import datetime
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render_to_response
+import blog.models
 
 # Create your views here.
 
@@ -51,5 +52,24 @@ def hhhh(request):
     return HttpResponse(html)
 
 
-def httprendertoresponse(request):
-    return render_to_response('search_form.html')
+#def httprendertoresponse(request):
+#    return render_to_response('search_form.html')
+    
+def search(request):
+    error = False
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            error = True
+        else:
+            books = blog.models.Book.objects.filter(title__icontains=q)
+            return render_to_response('search_request.html',{'books':books,'query':q})
+    return render_to_response('search_form.html', {'error': error})
+
+    
+def request_META(request):
+    html=[]
+    for k,v in request.META.items():
+        html.append('<tr><td>%s</td><td>%s</td></tr>'%(k,v))
+    html.sort()
+    return HttpResponse("<table>%s</table>"%"\n".join(html))
